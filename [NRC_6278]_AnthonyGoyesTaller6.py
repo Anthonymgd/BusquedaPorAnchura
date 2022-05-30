@@ -145,3 +145,25 @@ class Grafo:
                 if nodo_siguiente not in visitado:
                     queue.put(nodo_siguiente)
                     visitado.add(nodo_siguiente)      
+                    
+if __name__ == "__main__":
+    #Ejecución del algoritmo búsqueda por anchura
+    #Se instancia la clase
+    grafo1 = Grafo(5, dirigido=True)
+ 
+    # Añade las aristas con peso por defecto 1
+    grafo1.agregar_arista(0, 1)
+    grafo1.agregar_arista(0, 2)
+    grafo1.agregar_arista(1, 2)
+    grafo1.agregar_arista(1, 4)
+    grafo1.agregar_arista(2, 3)
+ 
+    # Imprime la lista de adyacencia como tipo de dato "diccionario": {(nodo, peso)}
+    grafo1.imprimir_lista_adyacencia()
+
+    print ("Imprimiendo el resultado del primer recorrido del algoritmo debúsqueda por peso " 
+                "(comenzando por el vértice 0): ")
+    # Imprime el recorrido con el algoritmo de búsqueda por anchura
+    grafo1.bpa(0)
+    # Se da un salto de línea
+    print()
