@@ -91,4 +91,57 @@ class Grafo:
         if not self.matriz_dirigido:
             self.matriz_lista_adyacencia[nodo2].add((nodo1, peso))
 
-            
+    def imprimir_lista_adyacencia(self):
+        """
+        Imprime la lista de adyacencia como representación del grafo.
+
+        Parámetros
+        ----------
+        Ninguno
+
+        Retorna
+        -------
+        Una cadena de texto con la matriz de adyacencia generada.
+        """
+        for key in self.matriz_lista_adyacencia.keys():
+            print("node", key, ": ", self.matriz_lista_adyacencia[key])
+
+    # Función que imprime el recorrido de la busqueda por anchura de un vértice fuente dado.
+    # bpa hace referencia al algoritmo de búsqueda por anchura
+    def bpa(self, nodo_inicial):
+        """
+        Imprime el recorrido de la busqueda por anchura de un vértice fuente dado.
+
+        Parámetros
+        ----------
+        nodo_inicial : entero
+            Representa al nodo raíz del grafo generado.
+
+        Retorna
+        -------
+        Una cadena de texto con la matriz de adyacencia generada.
+        """
+        # Se genera una variable tipo "colecciones" para prevenir ciclos infinitos
+        visitado = set()
+        # Se instancia la clase para trabajar con colas, una estructura de datos
+        queue = Queue()
+
+        # Se añade el nodo inicial a la cola y a la colección
+        queue.put(nodo_inicial)
+        visitado.add(nodo_inicial)
+
+        # Ciclo repetitivo "mietras" la cola no esté vacía realice el bloque de código interno.
+        while not queue.empty():
+            # Recorre la cola y almacena el nodo en una variable
+            nodo_actual = queue.get()
+            # Imprime el nodo almacenado y termina con un salto de línea
+            print(nodo_actual, end = " ")
+
+            # Ciclo repetitivo "para". Obtiene los vértices adyacentes del
+            # vértice desencolado, nodo actual.
+            for (nodo_siguiente, peso) in self.matriz_lista_adyacencia[nodo_actual]:
+                # Si vértice  adyacente no ha sido visitado, entonces lo marca
+                # como visitado y lo agrega a la cola
+                if nodo_siguiente not in visitado:
+                    queue.put(nodo_siguiente)
+                    visitado.add(nodo_siguiente)      
