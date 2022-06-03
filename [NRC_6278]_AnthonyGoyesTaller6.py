@@ -149,21 +149,76 @@ class Grafo:
 if __name__ == "__main__":
     #Ejecución del algoritmo búsqueda por anchura
     #Se instancia la clase
-    grafo1 = Grafo(5, dirigido=True)
+    # Primer caso
+    grafo = Grafo(7, dirigido=False)
  
     # Añade las aristas con peso por defecto 1
-    grafo1.agregar_arista(0, 1)
-    grafo1.agregar_arista(0, 2)
-    grafo1.agregar_arista(1, 2)
-    grafo1.agregar_arista(1, 4)
-    grafo1.agregar_arista(2, 3)
- 
-    # Imprime la lista de adyacencia como tipo de dato "diccionario": {(nodo, peso)}
-    grafo1.imprimir_lista_adyacencia()
+    grafo.agregar_arista(0, 1)
+    grafo.agregar_arista(0, 2)
+    grafo.agregar_arista(1, 3)
+    grafo.agregar_arista(1, 4)
+    grafo.agregar_arista(2, 3)
+    grafo.agregar_arista(2, 5)
+    grafo.agregar_arista(3, 4)
+    grafo.agregar_arista(3, 5)
+    grafo.agregar_arista(4, 5)
+    grafo.agregar_arista(4, 6)
+    grafo.agregar_arista(5, 6)
 
-    print ("Imprimiendo el resultado del primer recorrido del algoritmo debúsqueda por peso " 
-                "(comenzando por el vértice 0): ")
+    # Imprime la lista de adyacencia como tipo de dato "diccionario": {(nodo, peso)}
+    grafo.imprimir_lista_adyacencia()
+
+    print ("Imprimiendo el resultado del primer recorrido del algoritmo de búsqueda por anchura" 
+                " (comenzando por el nodo 0): ")
     # Imprime el recorrido con el algoritmo de búsqueda por anchura
-    grafo1.bpa(0)
+    grafo.bpa(0)
+    # Se da un salto de línea
+    print()
+
+    #Ejecución del algoritmo búsqueda por anchura
+    #Se instancia la clase
+    # Segundo caso
+    grafo = Grafo(4)
+ 
+    # Añade las aristas con peso por defecto 1
+    grafo.agregar_arista(0, 1, 4)
+    grafo.agregar_arista(0, 3, 3)
+    grafo.agregar_arista(1, 3, 2)
+    grafo.agregar_arista(3, 2, 2)
+    grafo.agregar_arista(2, 0, 5)
+    
+
+
+    # Imprime la lista de adyacencia como tipo de dato "diccionario": {(nodo, peso)}
+    grafo.imprimir_lista_adyacencia()
+
+    print ("Imprimiendo el resultado del segundo recorrido del algoritmo de búsqueda por anchura" 
+                " (comenzando por el nodo 0): ")
+    # Imprime el recorrido con el algoritmo de búsqueda por anchura
+    grafo.bpa(0)
+    # Se da un salto de línea
+    print()
+    
+    #Ejecución del algoritmo búsqueda por anchura
+    #Se instancia la clase
+    # Tercer caso
+    grafo = Grafo(5)
+ 
+    # Añade las aristas con peso por defecto 1
+    grafo.agregar_arista(0, 1)
+    grafo.agregar_arista(1, 2)
+    grafo.agregar_arista(1, 4)
+    grafo.agregar_arista(2, 3)
+    grafo.agregar_arista(2, 4)
+    grafo.agregar_arista(3, 4)
+    grafo.agregar_arista(4, 0)
+
+    # Imprime la lista de adyacencia como tipo de dato "diccionario": {(nodo, peso)}
+    grafo.imprimir_lista_adyacencia()
+
+    print ("Imprimiendo el resultado del tercer recorrido del algoritmo de búsqueda por anchura" 
+                " (comenzando por el nodo 2): ")
+    # Imprime el recorrido con el algoritmo de búsqueda por anchura
+    grafo.bpa(2 )
     # Se da un salto de línea
     print()
